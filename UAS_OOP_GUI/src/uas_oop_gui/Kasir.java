@@ -108,6 +108,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setForeground(new java.awt.Color(204, 204, 255));
         jTextField1.setEnabled(false);
 
         jTextField2.setEnabled(false);
@@ -372,10 +373,18 @@ public class Kasir extends javax.swing.JFrame {
         //Get Textbox
         try {
         pcs1 = Integer.valueOf(jTextField4.getText()) ;
+        }catch (Exception err){
+            
+        }
+                try {
         pcs2 = Integer.valueOf(jTextField5.getText()) ;
+        }catch (Exception err){
+            
+        }
+                try {
         pcs3 = Integer.valueOf(jTextField6.getText()) ;
         }catch (Exception err){
-            JOptionPane.showMessageDialog(frame,"Tidak Boleh kosong");
+            
         }
 
 
@@ -393,12 +402,12 @@ public class Kasir extends javax.swing.JFrame {
             jTextField7.setText(String.valueOf(diskon1));
         }
         
-        if (pcs1>50) {
+        if (pcs2>50) {
             diskon2 = total2*1/100;
             jTextField8.setText(String.valueOf(diskon2));
         }
         
-        if (pcs1>50) {
+        if (pcs3>50) {
             diskon3 = total3*1/100;
             jTextField9.setText(String.valueOf(diskon3));
         }
