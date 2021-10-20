@@ -436,7 +436,21 @@ public class Kasir extends javax.swing.JFrame {
         totalAkhir = allTotal - diskonJT;
         jTextField15.setText(String.valueOf(totalAkhir));
         
-
+        if (Integer.valueOf(jTextField10.getText())<0) {
+            
+            jTextField10.setText("Tidak sesuai");
+            
+        }
+        if (Integer.valueOf(jTextField11.getText())<0) {
+            
+            jTextField11.setText("Tidak sesuai");
+            
+        }
+        if (Integer.valueOf(jTextField12.getText())<0) {
+            
+            jTextField12.setText("Tidak sesuai");
+            
+        }
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
