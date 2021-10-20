@@ -20,6 +20,7 @@ public class Kasir extends javax.swing.JFrame {
     private int total1, total2, total3;
     int totalAkhir = 0;
     Component frame = null;
+
     
     public Kasir() {
         initComponents();
@@ -365,48 +366,43 @@ public class Kasir extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
+        int pcs1 = 0;
+        int pcs2 = 0;
+        int pcs3 = 0;
+        //Get Textbox
+        try {
+        pcs1 = Integer.valueOf(jTextField4.getText()) ;
+        pcs2 = Integer.valueOf(jTextField5.getText()) ;
+        pcs3 = Integer.valueOf(jTextField6.getText()) ;
+        }catch (Exception err){
+            JOptionPane.showMessageDialog(frame,"Tidak Boleh kosong");
+        }
+
+
+        //Penjumlahan Total Awal
+        total1 = inBarang1*pcs1;
+        total2 = inBarang2*pcs2;
+        total3 = inBarang3*pcs3;
+        
+        //Diskon
         int diskon1=0;
         int diskon2=0;
         int diskon3=0;
-        //Get Textbox
-        if (!jTextField4.getText().isEmpty()) {
-            int pcs1 = Integer.valueOf(jTextField4.getText()) ;
-            total1 = inBarang1*pcs1;
-            
-            if (pcs1>50) {
+        if (pcs1>50) {
             diskon1 = total1*1/100;
             jTextField7.setText(String.valueOf(diskon1));
         }
-        }else{
-             JOptionPane.showMessageDialog(frame,"Jumlah Barang Masih kosong");
-
-        }
         
-        if (!jTextField5.getText().isEmpty()) {
-            int pcs2 = Integer.valueOf(jTextField5.getText()) ;
-            total2 = inBarang2*pcs2;
-            if (pcs2>50) {
+        if (pcs1>50) {
             diskon2 = total2*1/100;
             jTextField8.setText(String.valueOf(diskon2));
         }
-
-        }else{
-             JOptionPane.showMessageDialog(frame,"Jumlah Barang Masih kosong");
-
-        }
         
-        if (!jTextField6.getText().isEmpty()) {
-            int pcs3 = Integer.valueOf(jTextField6.getText()) ;
-            total3 = inBarang3*pcs3;
-            if (pcs3>50) {
+        if (pcs1>50) {
             diskon3 = total3*1/100;
             jTextField9.setText(String.valueOf(diskon3));
         }
-        }else{
-             JOptionPane.showMessageDialog(frame,"Jumlah Barang Masih kosong");
-
-        }
-
+        
         //subTotal
         int subT1 = total1-diskon1;
         int subT2 = total2-diskon2;
@@ -440,7 +436,6 @@ public class Kasir extends javax.swing.JFrame {
         int bayar = Integer.valueOf(jTextField16.getText());
         jTextField17.setText(String.valueOf(bayar-totalAkhir));
         int sisa = bayar-totalAkhir;
-        
         
         //Jika Sisa
         if (sisa>0) {
